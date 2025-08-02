@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hi Prince 💞</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdf6f0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      background-color: inherit;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    img {
+      max-width: 90%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      z-index: 1;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      background-color: #a73884d1;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 2;
+    }
+
+    button:hover {
+      background-color: #b1aeaa;
+    }
+
+    .second-button {
+      background-color: #ff69b4;
+      margin-top: 20px;
+    }
+
+    .second-button:hover {
+      background-color: #ff1493;
+    }
+
+    .second-image-placeholder {
+      width: 90%;
+      max-width: 300px;
+      height: 250px;
+      background-color: #ffeef8;
+      border: 2px dashed #ff69b4;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff69b4;
+      font-size: 16px;
+      margin-bottom: 20px;
+      z-index: 1;
+    }
+
+    .float-emoji {
+      position: fixed;
+      font-size: 24px;
+      animation: floatUp 2.5s ease-out forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(1.8);
+      }
+    }
+
+    .gif-placeholder {
+      margin-bottom: 20px;
+      max-width: 90%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .gif-placeholder img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    .note {
+      font-size: 18px;
+      background-color: #fff0f5;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      button {
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+
+      .note {
+        font-size: 16px;
+        padding: 16px;
+      }
+
+      .second-image-placeholder {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <img src="rupanzel.jpg" alt="Prince's Image" />
+    <button onclick="goToPage2()">Hi Prince 💞🥰🤭🫣</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <div class="second-image-placeholder">
+      <img src= "rupanzel2.jpeg" alt="Prince's Image" />
+    </div>
+    <button class="second-button" onclick="goToPage3()">
+      You know you are the most handsome prince and sabse cutest 🤭💞🐼 click on this button
+    </button>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page" id="page3">
+    <div class="gif-placeholder">
+      <img src="rupanzel3.gif" alt="Prince GIF" />
+    </div>
+    <div class="note">
+      Hi, my prince 💞<br><br>
+      I hope you had a great day in college today.<br>
+      Ik tumare periods chal rahe hai... ab itne dur se bas yehi karke I can make u happy.<br>
+      Pass hota tho aur bohot kuch karta, but for now I hope this small thing makes you happy 💞🤭<br><br>
+      And let me remind u — I'm here for u always, whenever u need me.<br>
+      I will always listen to you patiently.<br>
+      Baki aur boht zyada nahi likh sakta idar hehe 🤭😂<br><br>
+      Take care my cute prince 💞🐼❤️
+    </div>
+  </div>
+
+  <script>
+    function showEmojis() {
+      const emojis = ['💖', '🐼', '🌸', '😻', '💕', '🐱', '💐', '❤️', '🌹', '💞'];
+      for (let i = 0; i < 60; i++) {
+        const emoji = document.createElement('div');
+        emoji.className = 'float-emoji';
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.left = Math.random() * window.innerWidth + 'px';
+        emoji.style.top = Math.random() * window.innerHeight + 'px';
+        emoji.style.fontSize = `${20 + Math.random() * 20}px`;
+        document.body.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 3000);
+      }
+    }
+
+    function goToPage2() {
+      showEmojis();
+      setTimeout(() => {
+        document.getElementById('page1').classList.remove('active');
+        document.getElementById('page2').classList.add('active');
+        document.body.style.backgroundColor = '#fff0f5';
+      }, 2000);
+    }
+
+    function goToPage3() {
+      showEmojis();
+      setTimeout(() => {
+        document.getElementById('page2').classList.remove('active');
+        document.getElementById('page3').classList.add('active');
+        document.body.style.backgroundColor = '#fdf6f0';
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
